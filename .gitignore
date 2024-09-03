@@ -1,3 +1,11 @@
+# Allure
+allure-results*/
+send_results.py
+
+# Node
+node_modules/
+package-lock.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,11 @@
+import allure
+import pytest
+{% for suite in parent_suite['suites'] %}{% for sub_suite in suite['subSuites'] %}{% for test in sub_suite['tests'] %}
+def test_{{ test['fn_name'] }}():
+    allure.dynamic.title("{{test['name']}}")
+    allure.dynamic.link("{{ test['link'] }}", name="Specification")
+    allure.dynamic.parent_suite("{{parent_suite['name']}}")
+    allure.dynamic.suite("{{suite['name']}}")
+    allure.dynamic.sub_suite("{{sub_suite['name']}}")
+    pytest.skip("TBD")
+{% endfor %}{% endfor %}{% endfor %}

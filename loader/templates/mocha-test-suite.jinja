@@ -1,0 +1,13 @@
+describe("{{ parent_suite['name'] }}", 
+    function() { {% for suite in parent_suite['suites'] %}
+    describe("{{ suite['name'] }}", 
+        function() { {% for sub_suite in suite['subSuites'] %}
+        describe("{{ sub_suite['name'] }}", 
+            function() { {% for test in sub_suite['tests'] %}
+            it("{{ test['name'] }}", 
+                function() {
+                this.skip('TBD');
+            });{% endfor %}
+        });{% endfor %}
+    });{% endfor %}
+});
